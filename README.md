@@ -1,11 +1,11 @@
 # Conversores-de-Unidades
 # Conversor de Tempo
 
-Descrição
+Descrição:
 
 Um programa simples em C que converte unidades de tempo entre horas, minutos e segundos.
 
-Funcionalidades
+Funcionalidades:
 
 - Converte horas para minutos
 - Converte horas para segundos
