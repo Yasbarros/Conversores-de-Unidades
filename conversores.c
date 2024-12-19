@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-//Espaço para criação de funções de conversão de unidades
 double converter_temperatura(double valor, const char *origem, const char *destino) {
     double resultado;
     if (strcmp(origem, "C") == 0) {
@@ -35,7 +34,6 @@ double converter_temperatura(double valor, const char *origem, const char *desti
     return resultado;
 }
 
-// Função para converter tempo
 void converter_tempo(int escolha, int *valor) {
     switch (escolha) {
         case 1:
@@ -64,9 +62,8 @@ void converter_tempo(int escolha, int *valor) {
 
 int main() {
     printf("Escolha qual conversor de unidades deseja utilizar:\n");
-    printf("1 - Conversor de temperaturas\n");  // Adicionar numeração no menu para escolha do conversor
+    printf("1 - Conversor de temperaturas\n");
     printf("2 - Conversor de tempo: Horas, Min, Seg \n");
-
     int opcao;
     scanf("%d", &opcao);
 
@@ -99,5 +96,5 @@ int main() {
         printf("Opção inválida!\n");
         return 1;
     }
-   return 0;
+    return 0;
 }
