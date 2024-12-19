@@ -37,7 +37,7 @@ Renan dos Santos Ferreira
 
 ## Conversor de velocidade
 
-Converte as unidades de medidadas de velocidade 'km/h', 'm/s' e 'mph'.
+Converte as unidades de medidas de velocidade: 'km/h', 'm/s' e 'mph'.
 
 ### Exemplo de uso:
 ```C
