@@ -58,7 +58,7 @@ int main() {
         printf("4. Minutos para Segundos\n");
         printf("5. Segundos para Horas\n");
         printf("6. Segundos para Minutos\n");
-        
+
         printf("Escolha um numero de acordo com a conversao Desejada: ");
         scanf("%d", &escolha);
 
@@ -83,9 +83,10 @@ int main() {
         double* result = converter_velocidade(valor, unidade);
 
         if(result != NULL){
-            printf("%.2lf %s em km/h: %.2lf\n", valor, unidade, result[0]);
-            printf("%.2lf %s em m/s: %.2lf\n", valor, unidade, result[1]);
-            printf("%.2lf %s em mph: %.2lf\n", valor, unidade, result[2]);
+            printf("\n");
+            printf("%.2lf em km/h: %.2lf\n", valor, result[0]);
+            printf("%.2lf em m/s: %.2lf\n", valor, result[1]);
+            printf("%.2lf em mph: %.2lf\n", valor, result[2]);
         }
         else
             printf("Erro: Unidade '%s' inválida. Tente 'km/h', 'm/s' ou 'mph'.\n", unidade);
