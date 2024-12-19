@@ -33,11 +33,11 @@ int main() {
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
     switch (opcao) {
     case 1:
-        double valor;
+        double valor_temperatura;
         char origem[2], destino[2];
         printf("Conversor de Temperatura\n\n");
         printf("Digite o valor da temperatura: ");
-        scanf("%lf", &valor);
+        scanf("%lf", &valor_temperatura);
 
         printf("Digite a unidade de origem (C, F, K): ");
         scanf("%s", origem);
@@ -45,12 +45,12 @@ int main() {
         printf("Digite a unidade de destino (C, F, K): ");
         scanf("%s", destino);
 
-        double resultado = converter_temperatura(valor, origem, destino);
+        double resultado = converter_temperatura(valor_temperatura, origem, destino);
         printf("O valor convertido de %s para %s é: %.2lf\n", origem, destino, resultado);
 
         break;
     case 2:
-        int escolha, valor;
+        int escolha, valor_tempo;
         printf("Conversor de Tempo\n\n");
         printf("1. Horas para Minutos\n");
         printf("2. Horas para Segundos\n");
@@ -63,34 +63,35 @@ int main() {
         scanf("%d", &escolha);
 
         printf("Digite o valor: ");
-        scanf("%d", &valor);
+        scanf("%d", &valor_tempo);
 
-        converter_tempo(escolha, &valor);
+        converter_tempo(escolha, &valor_tempo);
 
         break;
     case 3:
-        double valor;
+        double valor_velocidade;
         char unidade[5];
 
         printf("Conversor de Velocidade\n\n");
         
         printf("Digite o valor a ser convertido: ");
-        scanf("%lf", &valor);
+        scanf("%lf", &valor_velocidade);
         
-        print("Digite a unidade de medida desse valor: ");
+        printf("Digite a unidade de medida desse valor: ");
         scanf("%4s", unidade);
 
-        double* result = converter_velocidade(valor, unidade);
+        double* result = converter_velocidade(valor_velocidade, unidade);
 
         if(result != NULL){
             printf("\n");
-            printf("%.2lf em km/h: %.2lf\n", valor, result[0]);
-            printf("%.2lf em m/s: %.2lf\n", valor, result[1]);
-            printf("%.2lf em mph: %.2lf\n", valor, result[2]);
+            printf("%.2lf em km/h: %.2lf\n", valor_velocidade, result[0]);
+            printf("%.2lf em m/s: %.2lf\n", valor_velocidade, result[1]);
+            printf("%.2lf em mph: %.2lf\n", valor_velocidade, result[2]);
         }
         else
             printf("Erro: Unidade '%s' inválida. Tente 'km/h', 'm/s' ou 'mph'.\n", unidade);
 
+        break;
     default:
         printf("Opção inválida!\n");
         break;
