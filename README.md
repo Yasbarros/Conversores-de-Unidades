@@ -1,4 +1,6 @@
 # Conversores-de-Unidades
+<hr>
+
 ## Conversor de Tempo
 
 ### Descrição:
@@ -33,7 +35,9 @@ int main() {
 
 ### Autor
 
-Renan dos Santos Ferreira
+<i>Renan dos Santos Ferreira</i>
+
+<hr>
 
 ## Conversor de velocidade
 
@@ -50,4 +54,20 @@ Digite a unidade de medida desse valor: km/h
 ```
 
 ### Autor
-Vítor Coutinho Lima
+<i>Vítor Coutinho Lima</i>
+
+<hr>
+
+## Conversor unidade de área
+
+Converte as unidades de medidas de área: cm² para m² ou m² para cm².
+
+### Exemplo de uso:
+```
+Escolha a conversão que deseja realizar: cm² to m² ou m² para cm²
+Digite o valor a ser convertido: valor numérico (20.5)
+Resultado conversão.
+```
+
+### Autor
+<i>Breno Arouca</i>
