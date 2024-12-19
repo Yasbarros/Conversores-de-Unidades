@@ -18,6 +18,7 @@
 double converter_temperatura(double, const char *, const char *);
 double* converter_velocidade(double, char*);
 void converter_tempo(int, int *);
+void unidade_area();
 
 
 int main() {
@@ -32,7 +33,7 @@ int main() {
 
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
     switch (opcao) {
-    case 1:
+    case 1:{
         double valor_temperatura;
         char origem[2], destino[2];
         printf("Conversor de Temperatura\n\n");
@@ -49,7 +50,8 @@ int main() {
         printf("O valor convertido de %s para %s é: %.2lf\n", origem, destino, resultado);
 
         break;
-    case 2:
+    }
+    case 2:{
         int escolha, valor_tempo;
         printf("Conversor de Tempo\n\n");
         printf("1. Horas para Minutos\n");
@@ -68,7 +70,8 @@ int main() {
         converter_tempo(escolha, &valor_tempo);
 
         break;
-    case 3:
+    }
+    case 3:{
         double valor_velocidade;
         char unidade[5];
 
@@ -91,6 +94,10 @@ int main() {
         else
             printf("Erro: Unidade '%s' inválida. Tente 'km/h', 'm/s' ou 'mph'.\n", unidade);
 
+        break;
+    }
+    case 7: 
+        unidade_area();
         break;
     default:
         printf("Opção inválida!\n");
@@ -202,4 +209,29 @@ double* converter_velocidade(double valor, char *unidade){
 
     // Caso não consiga converter
     return NULL;
+}
+
+void unidade_area(){
+    int op = 0;
+    float entrada = 0.0;
+
+    printf("\nTipos de Conversao\n 1 - centimetro^2 -> metro^2\n 2 - metro^2 -> centimetro^2)\n\n Escolha: ");
+    scanf("%d%*c", &op);
+    printf("Insira a medida de area para ser realizada a conversao: ");
+    scanf("%f%*c", &entrada);
+    switch (op){
+    case 1:
+        printf("Entrada: %.2f cm^2\n", entrada);
+        printf("Conversao: %.3f m^2", entrada/10000);
+        break;
+
+    case 2:
+        printf("Entrada: %.2f m^2\n", entrada);
+        printf("Conversao: %.3f cm^2", entrada * 10000);
+        break;
+    default:
+        printf("\nOpcao invalida, tente novamente!!\n");
+        break;
+    }
+    printf("\n\n");
 }
