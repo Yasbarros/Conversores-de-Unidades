@@ -1,5 +1,4 @@
 # Conversores-de-Unidades
-<hr>
 
 ## Conversor de Temperatura
 
@@ -11,52 +10,45 @@ Este é um programa em linguagem C que realiza a conversão de temperaturas entr
 
 Converte temperaturas entre as seguintes unidades:
 
-Celsius (C)
-Fahrenheit (F)
-Kelvin (K)
+- Celsius (C)
+- Fahrenheit (F)
+- Kelvin (K)
 
 ### Como Funciona
 
 O programa solicita ao usuário:
 
-O valor da temperatura a ser convertido.
-A unidade de origem (C, F, K).
-A unidade de destino (C, F, K).
+- O valor da temperatura a ser convertido.
+- A unidade de origem (C, F, K).
+- A unidade de destino (C, F, K).
+  
 Com base nas entradas, ele realiza a conversão utilizando as fórmulas matemáticas apropriadas e exibe o resultado.
 
 ### Exemplo de Uso
 
-#### Entrada do Usuário:
+- Valor da temperatura: 25
+- Unidade de origem: C
+- Unidade de destino: F
 
-Valor da temperatura: 25
-Unidade de origem: C
-Unidade de destino: F
-
-#### Saída do Programa:
+### Saída do Programa:
 
 "O valor convertido de C para F é: 77.00"
 
-### Como Executar
+### Requisitos
 
-Compile o programa usando um compilador de C, como o GCC:
-gcc -o conversor conversor.c
-
-### Execute o programa:
-
-./conversor
-
-Escolha a opção "1 - Conversor de temperaturas" no menu principal.
-Insira os dados conforme solicitado.
-
-### Estrutura do Código
-
-A função converter_temperatura é o coração do módulo. Ela utiliza a função strcmp para determinar as unidades de origem e destino e aplica a fórmula correta para a conversão.
+- Compilador C (GCC)
+- Sistema operacional compatível com C
 
 ### Observações
 
 Certifique-se de inserir as unidades exatamente como especificado: C, F ou K.
 O programa valida as unidades de origem e destino, exibindo uma mensagem de erro caso sejam inválidas.
 
+### Autor
+
+<i>Yasmim Barros de Jesus</i>
+
+<hr>
 
 ## Conversor de Tempo
 
