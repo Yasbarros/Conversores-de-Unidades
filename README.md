@@ -71,3 +71,21 @@ Resultado conversão.
 
 ### Autor
 <i>Breno Arouca</i>
+
+<hr>
+
+## Conversor unidade de massa
+
+Converte as unidades de medidas de massa: kg para ton e gr, gr para ton e kg, e ton para kg e gr.
+
+### Exemplo de uso:
+```
+Escolha a conversão que deseja realizar: kg para ton e gr, ou gr para ton e kg, ou ton para kg e gr.
+Digite valor númerico: valor (500 kg)
+Resultado conversão:
+Em Toneladas: 0,5 ton;
+Em Gramas: 500.000 gr 
+```
+
+### Autor
+<i>Gustavo de Medeiros</i>
