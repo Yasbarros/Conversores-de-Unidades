@@ -97,6 +97,10 @@ int main() {
 
         break;
     }
+    case 4:{
+        conversor_massa();
+        break;
+    }
     case 7: 
         unidade_area();
         break;
@@ -211,6 +215,22 @@ double* converter_velocidade(double valor, char *unidade){
     // Caso não consiga converter
     return NULL;
 }
+
+void conversor_massa() {
+    int opcao;
+    double valor;
+
+    printf("Conversor de Massa\n");
+    printf("Escolha a conversão que deseja realizar:\n");
+    printf("1. Kg para Toneladas e Gramas\n");
+    printf("2. Gramas para Toneladas e Quilogramas\n");
+    printf("3. Toneladas para Quilogramas e Gramas\n");
+    printf("Digite a opção desejada: ");
+    scanf("%d", &opcao);
+
+    printf("Digite o valor numérico: ");
+    scanf("%lf", &valor);
+
 
 void unidade_area(){
     int op = 0;
