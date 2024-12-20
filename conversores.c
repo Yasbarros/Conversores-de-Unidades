@@ -242,7 +242,15 @@ void conversor_massa() {
         printf("Em Toneladas: %.6f ton\n", valor / 1e6);
         printf("Em Quilogramas: %.3f kg\n", valor / 1000);
         break;
-
+    case 3:
+        printf("\nResultado da conversão:\n");
+        printf("Em Quilogramas: %.3f kg\n", valor * 1000);
+        printf("Em Gramas: %.0f g\n", valor * 1e6);
+        break;
+    default:
+        printf("Opção inválida!\n");
+    }
+}
 
 void unidade_area(){
     int op = 0;
