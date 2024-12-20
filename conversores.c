@@ -231,6 +231,13 @@ void conversor_massa() {
     printf("Digite o valor numérico: ");
     scanf("%lf", &valor);
 
+    switch (opcao) {
+    case 1:
+        printf("\nResultado da conversão:\n");
+        printf("Em Toneladas: %.3f ton\n", valor / 1000);
+        printf("Em Gramas: %.0f g\n", valor * 1000);
+        break;
+
 
 void unidade_area(){
     int op = 0;
