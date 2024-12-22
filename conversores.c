@@ -19,6 +19,7 @@ double converter_temperatura(double, const char *, const char *);
 double* converter_velocidade(double, char*);
 void converter_tempo(int, int *);
 void unidade_area();
+void converterVolume(float valor, int unidadeOrigem, int unidadeDestino);
 
 
 int main() {
@@ -28,10 +29,12 @@ int main() {
     printf("2 - Conversor de tempo: Horas, Min, Seg \n");
     printf("3 - Conversor de Velocidade\n");
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
+    printf("5 - Conversor de Volume: L, mL, m^3\n");
+    printf("6 - Conversor de Area: cm^2, m^2\n");
+
     printf("Digite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
-
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
     switch (opcao) {
     case 1:{
@@ -101,9 +104,50 @@ int main() {
         conversor_massa();
         break;
     }
-    case 7: 
+    case 5: {
+        int unidadeOrigem, unidadeDestino;
+        float valor;
+
+        printf("Conversor de Unidades de Volume\n");
+        printf("Escolha a unidade de origem:\n");
+        printf("1. Litros\n");
+        printf("2. Mililitros\n");
+        printf("3. Metros Cúbicos\n");
+        printf("Sua escolha: ");
+        scanf("%d", &unidadeOrigem);
+
+        while (unidadeOrigem < 1 || unidadeOrigem > 3) {
+            printf("Unidade de origem inválida!. Digite novamente:\n");
+            scanf("%d", &unidadeOrigem);
+        }
+
+        printf("Digite o valor: ");
+        scanf("%f", &valor);
+
+        printf("Escolha a unidade de destino:\n");
+        printf("1. Litros\n");
+        printf("2. Mililitros\n");
+        printf("3. Metros Cúbicos\n");
+        printf("Sua escolha: ");
+        scanf("%d", &unidadeDestino);
+
+        while (unidadeDestino < 1 || unidadeDestino > 3) {
+            printf("Unidade de destino inválida!. Digite novamente:\n");
+            scanf("%d", &unidadeDestino);
+        }
+
+        if (unidadeOrigem == unidadeDestino) {
+            printf("A unidade de origem e de destino são iguais. Valor: %.6f\n", valor);
+        } else {
+            converterVolume(valor, unidadeOrigem, unidadeDestino);
+        }
+
+        break;
+    }
+    case 6:{
         unidade_area();
         break;
+    }
     default:
         printf("Opção inválida!\n");
         break;

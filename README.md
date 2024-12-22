@@ -181,6 +181,4 @@ Este é um programa em linguagem C desenvolvido para realizar a conversão de vo
 - Caso as unidades sejam inválidas, o programa exibirá uma mensagem de erro para orientar o usuário.
 
 ### Autor
-
 <i>Kalel Ezveither</i>
-
