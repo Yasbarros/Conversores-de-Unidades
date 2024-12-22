@@ -19,6 +19,7 @@ double converter_temperatura(double, const char *, const char *);
 double* converter_velocidade(double, char*);
 void converter_tempo(int, int *);
 void unidade_area();
+void converterVolume(float valor, int unidadeOrigem, int unidadeDestino);
 
 
 int main() {
@@ -29,6 +30,7 @@ int main() {
     printf("3 - Conversor de Velocidade\n");
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
     printf("5 - Conversor de Volume: L, mL, m^3\n");
+    printf("6 - Conversor de Area: cm^2, m^2\n");
     printf("Digite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
@@ -102,7 +104,7 @@ int main() {
         conversor_massa();
         break;
     }
-    case 5: 
+    case 5: {
         int unidadeOrigem, unidadeDestino;
         float valor;
 
@@ -141,7 +143,10 @@ int main() {
         }
 
         break;
-
+    }
+    case 6:
+        unidade_area();
+        break;
     default:
         printf("Opção inválida!\n");
         break;
