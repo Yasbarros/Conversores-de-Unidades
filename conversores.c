@@ -144,9 +144,10 @@ int main() {
 
         break;
     }
-    case 6:
+    case 6:{
         unidade_area();
         break;
+    }
     default:
         printf("Opção inválida!\n");
         break;
