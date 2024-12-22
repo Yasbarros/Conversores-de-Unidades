@@ -31,10 +31,10 @@ int main() {
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
     printf("5 - Conversor de Volume: L, mL, m^3\n");
     printf("6 - Conversor de Area: cm^2, m^2\n");
+
     printf("Digite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
-
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
     switch (opcao) {
     case 1:{
@@ -319,41 +319,4 @@ void unidade_area(){
         break;
     }
     printf("\n\n");
-}
-
-void converterVolume(float valor, int unidadeOrigem, int unidadeDestino) {
-    float resultado;
-    char *unidadeOrigemStr, *unidadeDestinoStr;
-
-    // Determina as strings das unidades
-    if (unidadeOrigem == 1) unidadeOrigemStr = "Litros";
-    else if (unidadeOrigem == 2) unidadeOrigemStr = "Mililitros";
-    else if (unidadeOrigem == 3) unidadeOrigemStr = "Metros Cúbicos";
-
-    if (unidadeDestino == 1) unidadeDestinoStr = "Litros";
-    else if (unidadeDestino == 2) unidadeDestinoStr = "Mililitros";
-    else if (unidadeDestino == 3) unidadeDestinoStr = "Metros Cúbicos";
-
-    // Conversão para a unidade de destino
-    if (unidadeOrigem == 1) { // Litros
-        if (unidadeDestino == 2) { // Para mililitros
-            resultado = valor * 1000;
-        } else if (unidadeDestino == 3) { // Para metros cúbicos
-            resultado = valor / 1000;
-        }
-    } else if (unidadeOrigem == 2) { // Mililitros
-        if (unidadeDestino == 1) { // Para litros
-            resultado = valor / 1000;
-        } else if (unidadeDestino == 3) { // Para metros cúbicos
-            resultado = valor / 1000000;
-        }
-    } else if (unidadeOrigem == 3) { // Metros cúbicos
-        if (unidadeDestino == 1) { // Para litros
-            resultado = valor * 1000;
-        } else if (unidadeDestino == 2) { // Para mililitros
-            resultado = valor * 1000000;
-        }
-    }
-
-    printf("%.6f %s = %.6f %s\n", valor, unidadeOrigemStr, resultado, unidadeDestinoStr);
 }
