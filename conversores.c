@@ -28,7 +28,7 @@ int main() {
     printf("2 - Conversor de tempo: Horas, Min, Seg \n");
     printf("3 - Conversor de Velocidade\n");
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
-    printf("5 - Conversor de Volume: L, mL, m³\n");
+    printf("5 - Conversor de Volume: L, mL, m^3\n");
     printf("Digite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
@@ -141,7 +141,7 @@ int main() {
         }
 
         break;
-        
+
     default:
         printf("Opção inválida!\n");
         break;
