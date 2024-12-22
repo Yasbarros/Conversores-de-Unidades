@@ -28,7 +28,6 @@ int main() {
     printf("2 - Conversor de tempo: Horas, Min, Seg \n");
     printf("3 - Conversor de Velocidade\n");
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
-    printf("5 - Conversor de Volume: L, mL, m³\n");
     printf("Digite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
@@ -102,46 +101,9 @@ int main() {
         conversor_massa();
         break;
     }
-    case 5: 
-        int unidadeOrigem, unidadeDestino;
-        float valor;
-
-        printf("Conversor de Unidades de Volume\n");
-        printf("Escolha a unidade de origem:\n");
-        printf("1. Litros\n");
-        printf("2. Mililitros\n");
-        printf("3. Metros Cúbicos\n");
-        printf("Sua escolha: ");
-        scanf("%d", &unidadeOrigem);
-
-        while (unidadeOrigem < 1 || unidadeOrigem > 3) {
-            printf("Unidade de origem inválida!. Digite novamente:\n");
-            scanf("%d", &unidadeOrigem);
-        }
-
-        printf("Digite o valor: ");
-        scanf("%f", &valor);
-
-        printf("Escolha a unidade de destino:\n");
-        printf("1. Litros\n");
-        printf("2. Mililitros\n");
-        printf("3. Metros Cúbicos\n");
-        printf("Sua escolha: ");
-        scanf("%d", &unidadeDestino);
-
-        while (unidadeDestino < 1 || unidadeDestino > 3) {
-            printf("Unidade de destino inválida!. Digite novamente:\n");
-            scanf("%d", &unidadeDestino);
-        }
-
-        if (unidadeOrigem == unidadeDestino) {
-            printf("A unidade de origem e de destino são iguais. Valor: %.6f\n", valor);
-        } else {
-            converterVolume(valor, unidadeOrigem, unidadeDestino);
-        }
-
+    case 7: 
+        unidade_area();
         break;
-        
     default:
         printf("Opção inválida!\n");
         break;
@@ -313,41 +275,4 @@ void unidade_area(){
         break;
     }
     printf("\n\n");
-}
-
-void converterVolume(float valor, int unidadeOrigem, int unidadeDestino) {
-    float resultado;
-    char *unidadeOrigemStr, *unidadeDestinoStr;
-
-    // Determina as strings das unidades
-    if (unidadeOrigem == 1) unidadeOrigemStr = "Litros";
-    else if (unidadeOrigem == 2) unidadeOrigemStr = "Mililitros";
-    else if (unidadeOrigem == 3) unidadeOrigemStr = "Metros Cúbicos";
-
-    if (unidadeDestino == 1) unidadeDestinoStr = "Litros";
-    else if (unidadeDestino == 2) unidadeDestinoStr = "Mililitros";
-    else if (unidadeDestino == 3) unidadeDestinoStr = "Metros Cúbicos";
-
-    // Conversão para a unidade de destino
-    if (unidadeOrigem == 1) { // Litros
-        if (unidadeDestino == 2) { // Para mililitros
-            resultado = valor * 1000;
-        } else if (unidadeDestino == 3) { // Para metros cúbicos
-            resultado = valor / 1000;
-        }
-    } else if (unidadeOrigem == 2) { // Mililitros
-        if (unidadeDestino == 1) { // Para litros
-            resultado = valor / 1000;
-        } else if (unidadeDestino == 3) { // Para metros cúbicos
-            resultado = valor / 1000000;
-        }
-    } else if (unidadeOrigem == 3) { // Metros cúbicos
-        if (unidadeDestino == 1) { // Para litros
-            resultado = valor * 1000;
-        } else if (unidadeDestino == 2) { // Para mililitros
-            resultado = valor * 1000000;
-        }
-    }
-
-    printf("%.6f %s = %.6f %s\n", valor, unidadeOrigemStr, resultado, unidadeDestinoStr);
 }
