@@ -19,7 +19,9 @@ double converter_temperatura(double, const char *, const char *);
 double* converter_velocidade(double, char*);
 void converter_tempo(int, int *);
 void unidade_area();
+void conversor_massa();
 void converterVolume(float valor, int unidadeOrigem, int unidadeDestino);
+double converter_comprimento(double, int);
 
 
 int main() {
@@ -31,8 +33,9 @@ int main() {
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
     printf("5 - Conversor de Volume: L, mL, m^3\n");
     printf("6 - Conversor de Area: cm^2, m^2\n");
+    printf("7 - Conversor de comprimento: m, cm, mm");
 
-    printf("Digite a opção desejada: ");
+    printf("\n\nDigite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
@@ -141,11 +144,48 @@ int main() {
         } else {
             converterVolume(valor, unidadeOrigem, unidadeDestino);
         }
-
         break;
     }
     case 6:{
         unidade_area();
+        break;
+    }
+    case 7:{
+        int escolha;  // Variável para armazenar a opção de conversão escolhida pelo usuário.
+        double valor; // Variável para armazenar o valor a ser convertido.
+
+        /*
+        * Exibe o menu de opções de conversão ao usuário.
+        * Cada número corresponde a uma conversão entre duas unidades de comprimento.
+        */
+        printf(
+            "Conversor de Comprimento\n\n"
+            "1 - metro para centímetro\n"
+            "2 - metro para milímetro\n"
+            "3 - centímetro para metro\n"
+            "4 - centímetro para milímetro\n"
+            "5 - milímetro para metro\n"
+            "6 - milímetro para centímetro\n\n"
+            "Escolha uma das opções de conversão: "
+        );
+
+        /* Lê a opção escolhida pelo usuário e armazena na variável `escolha`. */
+        scanf("%d", &escolha);
+
+        /* Solicita ao usuário o valor a ser convertido. */
+        printf("Insira o valor a ser convertido: ");
+        scanf("%lf", &valor);
+
+        /*
+        * Calcula o resultado da conversão utilizando a função `converter_comprimento`
+        * e exibe o resultado formatado com três casas decimais.
+        */
+        printf(
+            "\n\n"
+            "resultado: %.3lf\n",
+            converter_comprimento(valor, escolha)
+        );
+
         break;
     }
     default:
@@ -319,4 +359,22 @@ void unidade_area(){
         break;
     }
     printf("\n\n");
+}
+
+void converterVolume(float valor, int unidadeOrigem, int unidadeDestino) {}
+
+double converter_comprimento(double valor, int escolha) {
+    /*
+    * 1. metro para centímetro (m → cm): multiplica o valor por 100.
+    * 2. metro para milímetro (m → mm): multiplica o valor por 1000.
+    * 3. centímetro para metro (cm → m): divide o valor por 100.
+    * 4. centímetro para milímetro (cm → mm): multiplica o valor por 100.
+    * 5. milímetro para centímetro (mm → cm): divide o valor por 100.
+    * 6. milímetro para metro (mm → m): divide o valor por 1000.
+    */
+
+    if (escolha == 1 || escolha == 4) return valor*100.0;
+    if (escolha == 3 || escolha == 5) return valor/100.0;
+    if (escolha == 2) return valor*1000.0;
+    return valor/1000.0;
 }
