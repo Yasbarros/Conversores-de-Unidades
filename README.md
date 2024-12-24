@@ -182,3 +182,44 @@ Este é um programa em linguagem C desenvolvido para realizar a conversão de vo
 
 ### Autor
 <i>Kalel Ezveither</i>
+
+## Conversor de Comprimento
+
+### Sobre o Projeto
+Este é um programa desenvolvido na linguagem C, que tem como objetivo realizar a conversão de valores de comprimentos entre diferentes unidades, sendo elas: metro(m), centimetro(cm) e milimetro(mm).
+
+### Funcionalidades
+Converte comprimento entre:
+- Metro(M)
+- Centimetro(Cm)
+- Milimetro(Mm)
+
+### Como funciona
+1. O usuário seleciona qual opção de conversão deseja realizar;
+2. Informa o valor a ser convertido;
+3. O programa realiza o fluxo lógico, realiza a conversão entre unidades e exibe no terminal o resultado.
+
+### Exemplo de Uso
+```
+Conversor de Comprimento
+
+1 - metro para centímetro
+2 - metro para milímetro
+3 - centímetro para metro
+4 - centímetro para milímetro
+5 - milímetro para metro
+6 - milímetro para centímetro
+
+Escolha uma das opções de conversão: 3
+Insira o valor a ser convertido: 172.5
+
+
+resultado: 1.725
+
+```
+
+### Observações
+- O programa utiliza o padrão de ponto decimal sendo um ".", diferente do padrão brasileiro, que utiliza ",". Ou seja, valores decimais devem ser inseridos como xx.xx e não xx,xx.
+
+### Autor
+<i>Davi Macêdo Gomes</i>
