@@ -223,3 +223,55 @@ resultado: 1.725
 
 ### Autor
 <i>Davi Macêdo Gomes</i>
+
+---
+
+## Conversor de Unidade de Armazenamento Digital
+
+### Sobre o Projeto
+
+Realiza a conversão entre diferentes unidades de dados digitais: bits, bytes, kilobytes (KB), megabytes (MB), gigabytes (GB) e terabytes (TB).
+
+### Funcionalidades  
+
+Converte valores entre as seguintes unidades de dados:
+
+- Bits  
+- Bytes  
+- Kilobytes (KB)  
+- Megabytes (MB)  
+- Gigabytes (GB)  
+- Terabytes (TB) 
+
+### Como Funciona
+
+O programa solicita ao usuário:  
+
+1. O valor a ser convertido.  
+2. A unidade de origem (bits, bytes, KB, MB, GB, TB).  
+3. A unidade de destino (bits, bytes, KB, MB, GB, TB).  
+
+### Exemplo de Uso
+
+```
+Conversor de Armazenamento Digital
+
+Unidades Aceitas:
+1 - Bits
+2 - bytes
+3 - kilobytes (KB)
+4 - megabytes (MB)
+5 - gigabytes (GB)
+6 - terabytes (TB)
+
+Informe o valor a ser convertido: 10.5
+Escolha a unidade de origem: 3
+Escolha a unidade de destino: 1
+
+Resultado:
+----- 10.500000 KBs ===> 86016.000000 bits -----
+```
+
+### Autor
+
+*Paulo Hebert Rodrigues do Amaral*
