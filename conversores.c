@@ -371,8 +371,6 @@ void unidade_area(){
     printf("\n\n");
 }
 
-void converterVolume(float valor, int unidadeOrigem, int unidadeDestino) {}
-
 double converter_comprimento(double valor, int escolha) {
     /*
     * 1. metro para centímetro (m → cm): multiplica o valor por 100.
