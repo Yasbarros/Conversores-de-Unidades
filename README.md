@@ -182,3 +182,96 @@ Este é um programa em linguagem C desenvolvido para realizar a conversão de vo
 
 ### Autor
 <i>Kalel Ezveither</i>
+
+## Conversor de Comprimento
+
+### Sobre o Projeto
+Este é um programa desenvolvido na linguagem C, que tem como objetivo realizar a conversão de valores de comprimentos entre diferentes unidades, sendo elas: metro(m), centimetro(cm) e milimetro(mm).
+
+### Funcionalidades
+Converte comprimento entre:
+- Metro(M)
+- Centimetro(Cm)
+- Milimetro(Mm)
+
+### Como funciona
+1. O usuário seleciona qual opção de conversão deseja realizar;
+2. Informa o valor a ser convertido;
+3. O programa realiza o fluxo lógico, realiza a conversão entre unidades e exibe no terminal o resultado.
+
+### Exemplo de Uso
+```
+Conversor de Comprimento
+
+1 - metro para centímetro
+2 - metro para milímetro
+3 - centímetro para metro
+4 - centímetro para milímetro
+5 - milímetro para metro
+6 - milímetro para centímetro
+
+Escolha uma das opções de conversão: 3
+Insira o valor a ser convertido: 172.5
+
+
+resultado: 1.725
+
+```
+
+### Observações
+- O programa utiliza o padrão de ponto decimal sendo um ".", diferente do padrão brasileiro, que utiliza ",". Ou seja, valores decimais devem ser inseridos como xx.xx e não xx,xx.
+
+### Autor
+<i>Davi Macêdo Gomes</i>
+
+---
+
+## Conversor de Unidade de Armazenamento Digital
+
+### Sobre o Projeto
+
+Realiza a conversão entre diferentes unidades de dados digitais: bits, bytes, kilobytes (KB), megabytes (MB), gigabytes (GB) e terabytes (TB).
+
+### Funcionalidades  
+
+Converte valores entre as seguintes unidades de dados:
+
+- Bits  
+- Bytes  
+- Kilobytes (KB)  
+- Megabytes (MB)  
+- Gigabytes (GB)  
+- Terabytes (TB) 
+
+### Como Funciona
+
+O programa solicita ao usuário:  
+
+1. O valor a ser convertido.  
+2. A unidade de origem (bits, bytes, KB, MB, GB, TB).  
+3. A unidade de destino (bits, bytes, KB, MB, GB, TB).  
+
+### Exemplo de Uso
+
+```
+Conversor de Armazenamento Digital
+
+Unidades Aceitas:
+1 - Bits
+2 - bytes
+3 - kilobytes (KB)
+4 - megabytes (MB)
+5 - gigabytes (GB)
+6 - terabytes (TB)
+
+Informe o valor a ser convertido: 10.5
+Escolha a unidade de origem: 3
+Escolha a unidade de destino: 1
+
+Resultado:
+----- 10.500000 KBs ===> 86016.000000 bits -----
+```
+
+### Autor
+
+*Paulo Hebert Rodrigues do Amaral*

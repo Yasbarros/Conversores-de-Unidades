@@ -1,26 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
-
 // --- Unidades de Velocidade ---
 #define KMH "km/h"
 #define MS "m/s"
 #define MPH "mph"
-
 
 // --- Constantes de Conversão - Velociadade ---
 #define KMH_TO_MS 3.6
 #define KMH_TO_MPH 0.621371
 #define MS_TO_MPH 2.23694
 
+// --- Constantes da Relação entre as unidades de armazenamento de dados ---
+#define BYTE 1.0
+#define KB BYTE * 1024.0
+#define MB KB * 1024.0
+#define GB MB * 1024.0
+#define TB GB * 1024.0
+#define BIT BYTE / 8.0
 
 // Headers das funções
 double converter_temperatura(double, const char *, const char *);
 double* converter_velocidade(double, char*);
 void converter_tempo(int, int *);
 void unidade_area();
+void conversor_massa();
 void converterVolume(float valor, int unidadeOrigem, int unidadeDestino);
-
+double converter_comprimento(double, int);
+double converter_unidade_de_armazenamento_digital(double, int, int);
+void conversor_armazenamento_digital();
 
 int main() {
     
@@ -31,8 +39,10 @@ int main() {
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
     printf("5 - Conversor de Volume: L, mL, m^3\n");
     printf("6 - Conversor de Area: cm^2, m^2\n");
+    printf("7 - Conversor de comprimento: m, cm, mm\n");
+    printf("8 - Conversor de armazenamento digital (Bits, Bytes, KB, MB, GB, TB)\n");
 
-    printf("Digite a opção desejada: ");
+    printf("\nDigite a opção desejada: ");
     int opcao;
     scanf("%d", &opcao);
     // Adicionar na condição abaixo o numero para acesso ao seu conversor
@@ -141,18 +151,57 @@ int main() {
         } else {
             converterVolume(valor, unidadeOrigem, unidadeDestino);
         }
-
         break;
     }
     case 6:{
         unidade_area();
         break;
     }
+    case 7:{
+        int escolha;  // Variável para armazenar a opção de conversão escolhida pelo usuário.
+        double valor; // Variável para armazenar o valor a ser convertido.
+
+        /*
+        * Exibe o menu de opções de conversão ao usuário.
+        * Cada número corresponde a uma conversão entre duas unidades de comprimento.
+        */
+        printf(
+            "Conversor de Comprimento\n\n"
+            "1 - metro para centímetro\n"
+            "2 - metro para milímetro\n"
+            "3 - centímetro para metro\n"
+            "4 - centímetro para milímetro\n"
+            "5 - milímetro para metro\n"
+            "6 - milímetro para centímetro\n\n"
+            "Escolha uma das opções de conversão: "
+        );
+
+        /* Lê a opção escolhida pelo usuário e armazena na variável `escolha`. */
+        scanf("%d", &escolha);
+
+        /* Solicita ao usuário o valor a ser convertido. */
+        printf("Insira o valor a ser convertido: ");
+        scanf("%lf", &valor);
+
+        /*
+        * Calcula o resultado da conversão utilizando a função `converter_comprimento`
+        * e exibe o resultado formatado com três casas decimais.
+        */
+        printf(
+            "\n\n"
+            "resultado: %.3lf\n",
+            converter_comprimento(valor, escolha)
+        );
+
+        break;
+    }
+    case 8:
+        conversor_armazenamento_digital();
+        break;
     default:
         printf("Opção inválida!\n");
         break;
-    } 
-    
+    }    
     return 0;
 }
 
@@ -319,4 +368,116 @@ void unidade_area(){
         break;
     }
     printf("\n\n");
+}
+
+void converterVolume(float valor, int unidadeOrigem, int unidadeDestino) {
+    float resultado;
+    char *unidadeOrigemStr, *unidadeDestinoStr;
+
+    // Determina as strings das unidades
+    if (unidadeOrigem == 1) unidadeOrigemStr = "Litros";
+    else if (unidadeOrigem == 2) unidadeOrigemStr = "Mililitros";
+    else if (unidadeOrigem == 3) unidadeOrigemStr = "Metros Cúbicos";
+
+    if (unidadeDestino == 1) unidadeDestinoStr = "Litros";
+    else if (unidadeDestino == 2) unidadeDestinoStr = "Mililitros";
+    else if (unidadeDestino == 3) unidadeDestinoStr = "Metros Cúbicos";
+
+    // Conversão para a unidade de destino
+    if (unidadeOrigem == 1) { // Litros
+        if (unidadeDestino == 2) { // Para mililitros
+            resultado = valor * 1000;
+        } else if (unidadeDestino == 3) { // Para metros cúbicos
+            resultado = valor / 1000;
+        }
+    } else if (unidadeOrigem == 2) { // Mililitros
+        if (unidadeDestino == 1) { // Para litros
+            resultado = valor / 1000;
+        } else if (unidadeDestino == 3) { // Para metros cúbicos
+            resultado = valor / 1000000;
+        }
+    } else if (unidadeOrigem == 3) { // Metros cúbicos
+        if (unidadeDestino == 1) { // Para litros
+            resultado = valor * 1000;
+        } else if (unidadeDestino == 2) { // Para mililitros
+            resultado = valor * 1000000;
+        }
+    }
+
+    printf("%.6f %s = %.6f %s\n", valor, unidadeOrigemStr, resultado, unidadeDestinoStr);
+}
+
+double converter_comprimento(double valor, int escolha) {
+    /*
+    * 1. metro para centímetro (m → cm): multiplica o valor por 100.
+    * 2. metro para milímetro (m → mm): multiplica o valor por 1000.
+    * 3. centímetro para metro (cm → m): divide o valor por 100.
+    * 4. centímetro para milímetro (cm → mm): multiplica o valor por 100.
+    * 5. milímetro para centímetro (mm → cm): divide o valor por 100.
+    * 6. milímetro para metro (mm → m): divide o valor por 1000.
+    */
+
+    if (escolha == 1 || escolha == 4) return valor*100.0;
+    if (escolha == 3 || escolha == 5) return valor/100.0;
+    if (escolha == 2) return valor*1000.0;
+    return valor/1000.0;
+}
+
+// Função para converter entre unidades as unidades de armazenamento de dados
+double converter_unidade_de_armazenamento_digital(double valor, int unidade_origem, int unidade_destino) {
+    double fator[6] = {BIT, BYTE, KB, MB, GB, TB};
+
+    // Converte para bytes (unidade comum)
+    double valor_em_bytes = valor * fator[unidade_origem - 1];
+    // Converte de bytes para a unidade de destino
+    return valor_em_bytes / fator[unidade_destino - 1];
+}
+
+void conversor_armazenamento_digital() {
+    double valor, resultado;
+    int unidade_origem, unidade_destino;
+    char unidade_str[6][5] = {"bit", "byte", "KB", "MB", "GB", "TB"};
+
+    // MENU
+    printf("\n\nConversor de Armazenamento Digital\n\n");
+    printf("Unidades Aceitas:\n");
+    printf("1 - Bits\n");
+    printf("2 - Bytes\n");
+    printf("3 - Kilobytes (KB)\n");
+    printf("4 - Megabytes (MB)\n");
+    printf("5 - Gigabytes (GB)\n");
+    printf("6 - Terabytes (TB)\n\n");
+
+    // Valor a ser convertido
+    printf("Informe o valor a ser convertido: ");
+    scanf("%lf", &valor);
+
+    // Unidade de origem
+    do {
+        printf("Escolha a unidade de origem: ");
+        scanf("%d", &unidade_origem);
+        if(unidade_origem < 1 || unidade_origem > 6) {
+            printf("Erro: Escolha inválida! Por favor, escolha entre 1 a 6.\n");
+        }
+    } while(unidade_origem < 1 || unidade_origem > 6);
+
+    // Unidade de destino
+    do {
+        printf("Escolha a unidade de destino: ");
+        scanf("%d", &unidade_destino);
+        if(unidade_destino < 1 || unidade_destino > 6) {
+            printf("Erro: Escolha inválida! Por favor, escolha entre 1 a 6.\n");
+        }
+    } while(unidade_destino < 1 || unidade_destino > 6);
+
+    resultado = converter_unidade_de_armazenamento_digital(valor, unidade_origem, unidade_destino);
+
+    printf("\nResultado:\n----- %lf %s%c ===> %lf %s%c -----\n",
+        valor,
+        unidade_str[unidade_origem - 1],
+        valor > 1 ? 's': '\0',
+        resultado,
+        unidade_str[unidade_destino -1],
+        resultado > 1 ? 's': '\0'
+    );
 }
