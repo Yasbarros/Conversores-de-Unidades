@@ -22,6 +22,7 @@ void unidade_area();
 void conversor_massa();
 void converterVolume(float valor, int unidadeOrigem, int unidadeDestino);
 double converter_comprimento(double, int);
+void converter_potencia(int, float);
 
 
 int main() {
@@ -33,7 +34,8 @@ int main() {
     printf("4 - Conversor de Massa: Kg, Gr, Ton\n");
     printf("5 - Conversor de Volume: L, mL, m^3\n");
     printf("6 - Conversor de Area: cm^2, m^2\n");
-    printf("7 - Conversor de comprimento: m, cm, mm");
+    printf("7 - Conversor de comprimento: m, cm, mm\n");
+    printf("8 - Conversor de potência: W, kW, CV, HP");
 
     printf("\n\nDigite a opção desejada: ");
     int opcao;
@@ -187,6 +189,23 @@ int main() {
         );
 
         break;
+    }
+    case 8:{
+        int escolha;
+        float unidade;
+
+        printf("Escolha a unidade de origem:\n");
+        printf("1 - Watt\n");
+        printf("2 - Kilowatt\n");
+        printf("3 - CV\n");
+        printf("4 - HP\n");
+        scanf("%d", &escolha);
+
+        printf("Digite o valor a ser convertido:\n");
+        scanf("%f", &unidade);
+
+        converter_potencia(escolha, unidade);    
+        break;    
     }
     default:
         printf("Opção inválida!\n");
@@ -377,4 +396,36 @@ double converter_comprimento(double valor, int escolha) {
     if (escolha == 3 || escolha == 5) return valor/100.0;
     if (escolha == 2) return valor*1000.0;
     return valor/1000.0;
+}
+
+void converter_potencia(int escolha, float unidade){
+
+    switch (escolha) {
+
+        case 1: {
+            printf("%f [kW]\n", unidade/1000);
+            printf("%f [CV]\n", unidade*0.00135962);
+            printf("%f [HP]\n", unidade*0.00134102);
+            break;
+        }
+        case 2: {
+            printf("%f [W]\n", unidade*1000);
+            printf("%f [CV]\n", unidade*1.35962);
+            printf("%f [HP]\n", unidade*1.34102);
+            break;
+        }
+        case 3: {
+            printf("%f [W]\n", unidade/0.00135962);
+            printf("%f [kW]\n", unidade/1.35962);
+            printf("%f [HP]\n", unidade*0.98632);
+            break;
+        }
+        case 4: {
+            printf("%f [W]\n", unidade/0.00134102);
+            printf("%f [kW]\n", unidade/1.34102);
+            printf("%f [CV]\n", unidade/0.98632);
+            break;
+        }                        
+    }
+
 }
