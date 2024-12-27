@@ -160,6 +160,7 @@ int main() {
     case 7:{
         int escolha;  // Variável para armazenar a opção de conversão escolhida pelo usuário.
         double valor; // Variável para armazenar o valor a ser convertido.
+        double resultado; // Variável para armazenar o valor convertido.
 
         /*
         * Exibe o menu de opções de conversão ao usuário.
@@ -184,16 +185,25 @@ int main() {
         scanf("%lf", &valor);
 
         /*
-        * Calcula o resultado da conversão utilizando a função `converter_comprimento`
-        * e exibe o resultado formatado com três casas decimais.
+        * Realiza uma conversão de comprimento com base em um valor e uma opção fornecidos. 
+        * Se a opção escolhida for inválida, o programa exibe uma mensagem de erro. 
+        * Caso contrário, o resultado da conversão é exibido com três casas decimais.
         */
+        resultado = converter_comprimento(valor, escolha);
+        if (resultado == -1) {
+            printf(
+                "\n"
+                "opção inválida, tente novamente.\n"
+            );
+            break;
+        }
         printf(
-            "\n\n"
+            "\n"
             "resultado: %.3lf\n",
-            converter_comprimento(valor, escolha)
+            resultado
         );
-
         break;
+
     }
     case 8:
         conversor_armazenamento_digital();
@@ -420,7 +430,8 @@ double converter_comprimento(double valor, int escolha) {
     if (escolha == 1 || escolha == 4) return valor*100.0;
     if (escolha == 3 || escolha == 5) return valor/100.0;
     if (escolha == 2) return valor*1000.0;
-    return valor/1000.0;
+    if (escolha == 6) return valor/1000.0;
+    return -1;
 }
 
 // Função para converter entre unidades as unidades de armazenamento de dados
