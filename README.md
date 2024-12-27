@@ -275,3 +275,50 @@ Resultado:
 ### Autor
 
 *Paulo Hebert Rodrigues do Amaral*
+
+## Conversor de Potência
+
+### Sobre o Projeto
+Este é um programa desenvolvido em C, para conversão entre diferentes unidades de potência elétrica.
+
+### Funcionalidades
+Converte potência entre:
+- Watt [W]
+- KiloWatt [kW]
+- Cavalo-Vapor [CV]
+- Horse-Power [HP]
+
+### Como funciona
+1. O usuário seleciona o tipo de conversão;
+2. Informa a unidade inicial (W, kW, CV ou HP);
+3. Determina também o valor inicial;
+4. O programa retorna o valor nas diferentes unidades de medida.
+
+### Exemplo de Uso
+```
+
+Escolha a unidade de origem:
+
+1 - Watt
+2 - Kilowatt
+3 - CV
+4 - HP
+
+1
+
+Digite o valor a ser convertido:
+7560
+
+7.560000 [kW]
+10.278727 [CV]
+10.138111 [HP]
+
+```
+
+### Observações
+- Apesar de similares, CV e HP possuem uma pequena diferença.
+
+### Autor
+Victor Gabriel Guimarães Lopes
+
+---
